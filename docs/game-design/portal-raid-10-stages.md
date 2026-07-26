@@ -355,8 +355,12 @@ berserkExplode if heat >= 100
 
 ---
 
-## 7. 文件狀態
+## 7. 相關文件
 
-- 版本：v1  
+- 攻擊動畫與技能效果總表：`docs/game-design/portal-raid-boss-animations-skills.md`
+
+## 8. 文件狀態
+
+- 版本：v1.1  
 - 內容：10 關時間軸 + 工程數值主表 + 團滅代碼  
 - 後續可再拆：`balance.json`（數值）、`timeline/*.json`（各關招式）
