@@ -1,0 +1,3 @@
+assets/bosses/**/*.gif filter=lfs diff=lfs merge=lfs -text
+assets/bosses/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+assets/bosses/**/*.png filter=lfs diff=lfs merge=lfs -text

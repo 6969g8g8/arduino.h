@@ -480,8 +480,13 @@ boss10_gate_idle_p1 / cast_door / idle_p2 / cast_sacrifice / idle_p3 / cast_fina
 
 ---
 
+## 相關素材
+
+- 攻擊動畫包（GIF／MP4／關鍵幀）：`assets/bosses/`
+- 預覽頁：`assets/bosses/index.html`
+
 ## 文件狀態
 
-- 版本：v1.2
-- 內容：十種 Boss 攻擊動畫與技能效果；人數上限 15；數值對齊削弱後個人能力
+- 版本：v1.3
+- 內容：十種 Boss 攻擊動畫與技能效果；人數上限 15；數值對齊削弱後個人能力；已附生成動畫素材
 - 關聯：`docs/game-design/portal-raid-10-stages.md`

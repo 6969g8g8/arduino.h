@@ -410,6 +410,8 @@ berserkExplode if heat >= 100
 ## 7. 相關文件
 
 - 攻擊動畫與技能效果總表：`docs/game-design/portal-raid-boss-animations-skills.md`
+- **Boss 攻擊動畫素材包**：`assets/bosses/`（每關 `attack.gif`／`attack.mp4`／三關鍵幀）
+- 動畫預覽：`assets/bosses/index.html`
 
 ## 文件狀態
 
