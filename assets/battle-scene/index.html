@@ -1,0 +1,83 @@
+<!-- Design reminder: Tactical fantasy battle UI — Boss upper field, three role lanes below, and skill actions that visibly change depth position. -->
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080c13" />
+    <title>攻略傳送門｜整合式戰鬥場景</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="battle-shell" aria-label="攻略傳送門整合式戰鬥場景">
+        <header class="battle-header">
+          <div class="brand-lockup">
+            <img src="./portal-mark.png" alt="攻略傳送門" />
+            <div><strong>PORTAL RAID</strong><span>攻略傳送門 · 戰鬥連線中</span></div>
+          </div>
+          <div class="header-actions">
+            <button id="sound-toggle" class="icon-button" type="button" aria-label="開啟音效">⌁</button>
+            <span class="round-label">ROUND <b id="round-number">07</b></span>
+          </div>
+        </header>
+
+        <div class="battlefield">
+          <div class="field-vignette"></div>
+          <div class="boss-zone">
+            <div class="boss-callout">◉ 機制預兆 <b>0.8s</b></div>
+            <div class="boss-card">
+              <video id="boss-video" class="boss-video" src="../bosses/01-slime/attack.mp4" autoplay loop muted playsinline></video>
+              <div class="boss-video-overlay"></div>
+              <div class="boss-info"><span id="boss-id">BOSS · 01</span><strong id="boss-name">拖延史萊姆</strong><small id="boss-skill">黏拳拍打</small></div>
+              <div class="boss-hp"><div class="boss-hp-top"><span>生命值</span><b id="boss-hp-value">78%</b></div><div class="hp-track"><span id="boss-hp-fill" class="hp-fill hp-boss" style="width:78%"></span></div></div>
+            </div>
+          </div>
+
+          <div id="phase-chip" class="phase-chip">⌁ 等待隊伍指令</div>
+          <div class="battle-gridlines" aria-hidden="true"></div>
+          <div class="party-zone">
+            <div class="line-label line-front"><span>FRONT</span><small>前排</small></div>
+            <div class="line-label line-mid"><span>MID</span><small>中排</small></div>
+            <div class="line-label line-back"><span>BACK</span><small>後排</small></div>
+            <div id="heal-link" class="heal-link"><span></span>✦</div>
+
+            <article class="actor actor-warrior" data-role="warrior">
+              <div class="actor-shadow"></div><div class="actor-card"><div class="actor-idle idle-ember">⚔<span>戰士</span></div><video class="actor-video" src="../classes/warrior/attack.mp4" playsinline></video><div class="actor-badge badge-ember">戰士</div></div><div class="actor-caption"><span class="actor-state">待命</span><div class="hp-track"><span class="hp-fill hp-ember" style="width:64%"></span></div></div>
+            </article>
+            <article class="actor actor-tank" data-role="tank">
+              <div class="actor-shadow"></div><div class="actor-card"><div class="actor-idle idle-ice">♜<span>坦克</span></div><video class="actor-video" src="../classes/tank/defend.mp4" playsinline></video><div class="actor-badge badge-ice">坦克</div></div><div class="actor-caption"><span class="actor-state">待命</span><div class="hp-track"><span class="hp-fill hp-ice" style="width:78%"></span></div></div>
+            </article>
+            <article class="actor actor-support" data-role="support">
+              <div class="actor-shadow"></div><div class="actor-card"><div class="actor-idle idle-jade">✚<span>輔助</span></div><video class="actor-video" src="../classes/support/heal.mp4" playsinline></video><div class="actor-badge badge-jade">輔助</div></div><div class="actor-caption"><span class="actor-state">待命</span><div class="hp-track"><span class="hp-fill hp-jade" style="width:91%"></span></div></div>
+            </article>
+          </div>
+          <div id="screen-flash" class="screen-flash"></div>
+        </div>
+
+        <section class="encounter-controls">
+          <div class="section-heading"><div><span>ENCOUNTER SELECT</span><strong>選擇 Boss 機制</strong></div><b id="boss-count">01 / 10</b></div>
+          <div id="boss-selector" class="boss-selector" role="tablist" aria-label="Boss 選擇"></div>
+        </section>
+
+        <section class="command-deck">
+          <div class="section-heading"><div><span>TACTICAL COMMAND</span><strong>選擇職業技能</strong></div><b id="command-state">● READY</b></div>
+          <div class="skill-grid">
+            <button class="skill-button skill-ember" data-role-button="warrior" type="button"><span class="skill-icon">⚔</span><span class="skill-copy"><small>戰士</small><strong>攻擊</strong><em>前排突進</em></span><i>›</i></button>
+            <button class="skill-button skill-ice" data-role-button="tank" type="button"><span class="skill-icon">♜</span><span class="skill-copy"><small>坦克</small><strong>防禦</strong><em>中排承傷</em></span><i>›</i></button>
+            <button class="skill-button skill-jade" data-role-button="support" type="button"><span class="skill-icon">✚</span><span class="skill-copy"><small>輔助</small><strong>回血</strong><em>原位施療</em></span><i>›</i></button>
+          </div>
+          <div class="utility-row"><span>⌑ 技能執行期間鎖定指令</span><button id="reset-button" type="button">↻ 重置遭遇</button></div>
+        </section>
+      </section>
+
+      <aside class="command-log">
+        <span class="eyebrow">COMMAND LOG</span><h1>戰鬥紀錄</h1>
+        <div id="combat-log" class="log-list"><p><b>03</b> 隊伍已進入傳送門戰場</p><p><b>02</b> Boss 正在讀取下一個機制</p></div>
+        <div class="party-vitals"><span>PARTY VITALS</span><p><i class="vital-ember"></i>戰士 <b><em style="width:64%"></em></b><small>64%</small></p><p><i class="vital-ice"></i>坦克 <b><em style="width:78%"></em></b><small>78%</small></p><p><i class="vital-jade"></i>輔助 <b><em style="width:91%"></em></b><small>91%</small></p></div>
+        <footer>⚔ TEAMPLAY IS THE WEAPON</footer>
+      </aside>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
