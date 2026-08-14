@@ -46,3 +46,13 @@ assets/classes/
 
 - 職業技能數值：`docs/game-design/portal-raid-10-stages.md` §1.3
 - Boss 動畫包：`assets/bosses/`
+
+## 可播放職業技能影片
+
+下列三個職業技能 MP4 已更新為可直接播放的完整動畫，規格為 1280×720、16:9、8 秒，並包含 AAC 音效。影片沿用既有檔名與目錄，因此現有遊戲程式不需要變更引用路徑；完整對照表請見 [`GENERATED_SKILL_VIDEOS.md`](./GENERATED_SKILL_VIDEOS.md)。
+
+| 職業 | 技能 | 影片 |
+| --- | --- | --- |
+| 戰士 | 攻擊 | `warrior/attack.mp4` |
+| 坦克 | 防禦 | `tank/defend.mp4` |
+| 輔助 | 回血 | `support/heal.mp4` |
