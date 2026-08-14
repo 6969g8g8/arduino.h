@@ -62,3 +62,20 @@ onHitResolve -> show frames/03_impact  (+ VFX overlay)
 - 動畫文字規格：`docs/game-design/portal-raid-boss-animations-skills.md`
 
 大型二進位檔以 Git LFS 追蹤（`.gitattributes`）。
+
+## 可播放攻擊影片
+
+十個 Boss 的 `attack.mp4` 已更新為可直接播放的完整攻擊影片，規格為 1280×720、16:9、8 秒，並包含 AAC 音效。影片仍沿用既有目錄與檔名，因此現有預覽頁與遊戲程式不需要更改路徑即可使用。完整對照表與工程引用說明請見 [`GENERATED_ATTACK_VIDEOS.md`](./GENERATED_ATTACK_VIDEOS.md)。
+
+| 關卡 | Boss | 影片 |
+| ---: | --- | --- |
+| 01 | 拖延史萊姆 | `01-slime/attack.mp4` |
+| 02 | 回音蝙蝠 | `02-bat/attack.mp4` |
+| 03 | 鏡盾石像 | `03-golem/attack.mp4` |
+| 04 | 分裂草精 | `04-sprite/attack.mp4` |
+| 05 | 潮汐巨蟹 | `05-crab/attack.mp4` |
+| 06 | 欺詐小丑 | `06-clown/attack.mp4` |
+| 07 | 熔核巨人 | `07-magma/attack.mp4` |
+| 08 | 影縛雙子 | `08-twins/attack.mp4` |
+| 09 | 時間沙漏魔 | `09-hourglass/attack.mp4` |
+| 10 | 虛空門神 | `10-voidgate/attack.mp4` |
